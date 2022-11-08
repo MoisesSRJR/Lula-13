@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from 'next/link'
 import { useEffect, useMemo, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { formatDistance } from "date-fns";
@@ -109,6 +110,11 @@ export default function Home({ g1 }: { g1: any}) {
         <div className={styles.grid}>{handleG1Feed}</div>
       </main>
     </div>
+    <footer className={styles.footer}>
+      <Link href={'/politica-de-privacidade'}>
+        Política de privacidade
+      </Link>
+    </footer>
     </>
   );
 }

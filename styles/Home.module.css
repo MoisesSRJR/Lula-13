@@ -30,6 +30,10 @@
   align-items: center;
 }
 
+.footer a {
+  color:#E4142C;
+}
+
 .grid {
   display: grid;
   width: 100%;
@@ -138,13 +142,11 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-
 .grid {
   margin: 0 auto;
   max-width: 1300px;
+  padding-bottom: 80px;
 }
-
-
 
 .logo {
   height: 1em;
@@ -155,19 +157,6 @@
   .grid {
     width: 100%;
     flex-direction: column;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
   }
 }
 

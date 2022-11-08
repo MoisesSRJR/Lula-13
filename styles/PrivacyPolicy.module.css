@@ -1,0 +1,26 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 18px;
+  position: relative;
+}
+
+.close {
+  color: #E4142C;
+  font-weight: 600;
+  position: absolute;
+  right: 18px;
+  top: 10px;
+}
+
+.wrapper h1 {
+  margin-bottom: 40px;
+}
+
+.wrapper p, .wrapper strong, .wrapper ul li {
+  margin: 15px 0;
+}
+
+.wrapper ul {
+  list-style-position: inside;
+}
