@@ -5,15 +5,23 @@ import { useEffect, useMemo, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { formatDistance } from "date-fns";
 import pt from "date-fns/locale/pt-BR";
+import { useRouter } from 'next/router';
+
 export default function Home({ g1 }: { g1: any}) {
   const [g1Feed, setG1Feed] = useState([]);
   const [countdown, setCountDown] = useState([]);
+  const router = useRouter();
 
   const xmlToJson = (doc: any) => {
     return JSON.parse((window as any).xml2json(doc).replace("undefined", ""));
   };
 
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+
   useEffect(() => {
+    refreshData()
     let parser = new DOMParser();
     const g1xmlDoc = parser.parseFromString(g1, "text/xml");
     const g1JsonData = xmlToJson(g1xmlDoc);
