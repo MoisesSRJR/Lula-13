@@ -7,7 +7,7 @@ import { formatDistance } from "date-fns";
 import pt from "date-fns/locale/pt-BR";
 import { useRouter } from 'next/router';
 
-export default function Home({ g1 }: { g1: any}) {
+export default function Home() {
   const [g1Feed, setG1Feed] = useState([]);
   const [countdown, setCountDown] = useState([]);
   const router = useRouter();
@@ -16,16 +16,16 @@ export default function Home({ g1 }: { g1: any}) {
     return JSON.parse((window as any).xml2json(doc).replace("undefined", ""));
   };
 
-  const refreshData = () => {
-    router.replace(router.asPath);
-  }
-
   useEffect(() => {
-    refreshData()
-    let parser = new DOMParser();
-    const g1xmlDoc = parser.parseFromString(g1, "text/xml");
-    const g1JsonData = xmlToJson(g1xmlDoc);
-    setG1Feed(g1JsonData?.rss?.channel?.item || []);
+   fetch('https://faz-o-l.vercel.app/news')
+   .then(response => response.text())
+   .then(data => {
+      let parser = new DOMParser();
+      const g1xmlDoc = parser.parseFromString(data, "text/xml");
+      const g1JsonData = xmlToJson(g1xmlDoc);
+      setG1Feed(g1JsonData?.rss?.channel?.item || []);
+   })
+    
 
     const timer = setInterval(() => {
       (window as any).countdown.setLabels(
@@ -127,8 +127,3 @@ export default function Home({ g1 }: { g1: any}) {
   );
 }
 
-export async function getStaticProps() {
-  const res1 = await fetch("https://g1.globo.com/rss/g1/politica");
-  const g1 = await res1.text();
-  return { props: { g1 } };
-}
