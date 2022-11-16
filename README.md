@@ -1,3 +1,8 @@
+Projeto Web e APK que simula uma contagem regressiva para o novo presidente assumir o governo e integrado com uma API que exibe as últimas notícias referente a política.
+
+![unnamed (1)](https://user-images.githubusercontent.com/63628121/202097876-04e2e61a-3385-4d54-ace3-45e8d70124e4.png)
+![unnamed](https://user-images.githubusercontent.com/63628121/202097891-e0083fb0-64b7-44d6-8354-cd191b56a180.png)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
